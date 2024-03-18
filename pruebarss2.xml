@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+	<channel>
+	<title>Mango</title>
+	<link>https://es.wikipedia.org/wiki/Mango_(fruta)</link>
+	<description>Hola buenos dias</description>
+	<item>
+		<title>Caca</title>
+		<link>https://es.wikipedia.org/wiki/Mango_(fruta)</link>
+		<description>Como estan muchachos</description>
+		<pubDate>Wed, 10 Jan 2024 18:00:00 GMT</pubDate>
+		<guid isPermaLink="false">Tus muertos</guid>
+	</item>
+	</channel>
+</rss>

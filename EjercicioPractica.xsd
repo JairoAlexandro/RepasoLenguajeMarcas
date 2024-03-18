@@ -1,0 +1,47 @@
+<!-- <?xml version="1.0" encoding="utf-8"?>
+<biblioteca>
+    <libro codigo="123" ubicacion="estantería 1">
+        <autor>Miguel de Cervantes Saavedra</autor>
+        <titulo>El Quijote de la Mancha</titulo>
+    </libro>
+    <libro codigo="1023" ubicacion="estantería 3">
+        <autor>Pablo Neruda</autor>
+        <titulo>Veinte poemas de amor y una canción desesperada</titulo>
+    </libro>
+</biblioteca>-->
+
+<? xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns = "www.w3.org/2001/XMLSchema">
+<xs:element name="biblioteca">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="libro" minOccurs="0" minOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="autor" type="xs:string"/>
+						<xs:element name="titulo" type="xs:string"/>
+					</xs:sequence>
+					<xs:attribute name="codigo">
+						<xs:simpleType>
+							<xs:restriction base="xs:integer">
+								<xs:minInclusive value="1"/>
+								<xs:maxInclusive value="999"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="ubicacion">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="estantería 1"/>
+								<xs:enumeration value="estantería 2"/>
+								<xs:enumeration value="estantería 3"/>
+								<xs:enumeration value="estantería 4"/>
+								<xs:enumeration value="estantería 5"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</sx:element>

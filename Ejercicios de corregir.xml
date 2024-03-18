@@ -1,0 +1,522 @@
+<!-- Ejercicio 1 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE perifericos [
+<!ELEMENT perifericos (#PCDATA)>
+]>
+<perifericos>impresora monitor teclado</perifericos>
+
+
+<!-- Ejercicio 2 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE perro [
+<!ELEMENT perro (edad, nombre)>
+<!ELEMENT edad (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+]>
+
+<perro>
+<edad>8</edad>
+<nombre>Pancho</nombre>
+</perro>
+
+
+<!-- Ejercicio 3 -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE caballo [
+<!ELEMENT caballo (nombre, raza, edad)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT raza (#PCDATA)>
+<!ELEMENT edad EMPTY>
+]>
+<caballo>
+<nombre>Silvestre</nombre>
+<raza>Morgan</raza>
+<edad/>
+</caballo>
+
+<!-- Ejercicio 4 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mesa [
+<!ELEMENT mesa ANY>
+<!ELEMENT material (#PCDATA)>
+<!ELEMENT color (#PCDATA)>
+]>
+<mesa>La mesa de <material>madera</material>es de color
+<color>marrón</color>.</mesa>
+
+<!-- Ejercicio 5 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE partes [
+<!ELEMENT partes (secciones)>
+<!ELEMENT secciones ANY>
+<!ELEMENT letras (#PCDATA)>
+]>
+
+<partes>
+	<secciones>
+		<letras>abc</letras>
+			MNT
+		<letras>xyz</letras>
+	</secciones>
+</partes>
+
+<!-- Ejercicio 6 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE viajes [
+<!ELEMENT viajes (austria, italia, francia)>
+<!ELEMENT austria (ciudad+)>
+<!ELEMENT italia (ciudad+)>
+<!ELEMENT francia (ciudad+)>
+<!ELEMENT ciudad (#PCDATA)>
+]>
+<viajes>
+	<austria>
+		<ciudad>viena</ciudad>
+	</austria> 
+	<italia>
+		<ciudad>florencia</ciudad>
+		<ciudad>roma</ciudad>
+		<ciudad>venecia</ciudad>
+	</italia>
+	<francia>
+		<ciudad/>
+	</francia>
+</viajes>
+
+<!-- Ejercicio 7 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ropa [
+<!ELEMENT ropa (nombre, color*)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT color (#PCDATA)>
+]>
+<ropa>
+	<nombre>guante</nombre>
+	<color>rojo</color>
+	<color>blanco</color>
+</ropa>
+
+<!-- Ejercicio 8 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE paises [
+<!ELEMENT paises (pais, ciudad?)*>
+<!ELEMENT pais (#PCDATA)>
+<!ELEMENT ciudad (#PCDATA)>
+]>
+<paises>
+	<pais>italia</pais>
+	<ciudad>florencia</ciudad>
+	<pais>portugal</pais>
+	<ciudad>lisboa</ciudad>
+	<pais>francia</pais>
+</paises>
+
+<!-- Ejercicio 9 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bebidas [
+<!ELEMENT bebidas (bebida)*>
+<!ELEMENT bebida ((codigo | nombre), precio)>
+<!ELEMENT codigo (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT precio (#PCDATA)>
+]>
+
+<bebidas>
+	<bebida>
+		<codigo>L45</codigo>
+		<precio>8</precio>
+	</bebida>
+	<bebida>
+		<codigo/>
+		<precio>6</precio>
+	</bebida>
+</bebidas>
+
+<!-- Ejercicio 10 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE productos [
+<!ELEMENT productos (producto)*>
+<!ELEMENT producto (identificacion, nombre)>
+<!ELEMENT identificacion (#PCDATA | codigo | id)*>
+<!ELEMENT codigo (#PCDATA)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+]>
+<productos>
+<producto>
+	<identificacion>
+		Quedan 14 unidades.
+		<codigo>MAR264</codigo>
+	</identificacion>
+	<nombre>martillo</nombre>
+</producto>
+<producto>
+	<identificacion>
+		<codigo>DES387</codigo>
+		<id>678984</id>
+		No hay stock.
+	</identificacion>
+	<nombre>destornillador</nombre>
+</producto>
+</productos>
+
+<!--2 Ejercicios de elementos elementos DTD
+Resolver los errores de los s Resolver los errores de 
+los siguientes archivos XML iguientes archivos XML 
+modificando la DTD modificando la DTD-->
+
+<!-- Ejercicio 11 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE forma_geometrica [
+<!ELEMENT forma_geometrica (nombre | caracteristicas | numero_de_lados)>
+<!ELEMENT caracteristicas (color, tipo)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT color (#PCDATA)>
+<!ELEMENT tipo (#PCDATA)>
+<!ELEMENT numero_de_lados (#PCDATA)>
+]>
+<forma_geometrica>
+	<nombre>rombo</nombre>
+	<caracteristicas>
+		<color>naranja</color>
+		<tipo>plana</tipo>
+	</caracteristicas>
+	<numero_de_lados>4</numero_de_lados>
+</forma_geometrica>
+
+<!-- Ejercicio 12 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lugares [
+<!ELEMENT lugares ANY>
+<!ELEMENT lugar(#PCDATA)>
+]>
+<lugares>En el <lugar>polo norte</lugar> hace mucho frío. Pero, en el
+<lugar>desierto del Sahara</lugar> hace mucho calor.</lugares>
+
+<!-- Ejercicio 13 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ciudades [
+<!ELEMENT ciudades (ciudad)*>
+<!ELEMENT ciudad (nombre, capital?)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT capital EMPTY>
+]>
+<ciudades>
+<ciudad>
+<nombre>Buenos Aires</nombre>
+<capital/>
+</ciudad>
+<ciudad>
+<nombre>Liverpool</nombre>
+</ciudad>
+<ciudad>
+<nombre>Osaka</nombre>
+</ciudad>
+<ciudad>
+<nombre>Oslo</nombre>
+<capital/> </ciudad>
+</ciudades>
+
+<!-- Ejercicio 14 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE socios [
+<!ELEMENT socios (socio)*>
+<!ELEMENT socio ((numero | clave)?, nombre, edad?)>
+<!ELEMENT clave (#PCDATA)>
+<!ELEMENT edad (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT numero (#PCDATA)>
+]>
+<socios>
+	<socio>
+		<nombre>Ana</nombre>
+		<edad>21</edad>
+	</socio>
+	<socio>
+		<numero>598</numero>
+		<nombre>Iker</nombre>
+		<edad>19</edad>
+	</socio>
+	<socio>
+		<clave>hY75Du</clave>
+		<nombre>Iker</nombre>
+	</socio>
+</socios>
+
+<!-- Ejercicio 15 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE elementos [
+<!ELEMENT elementos (pcdata*, any+, vacio)>
+<!ELEMENT pcdata (#PCDATA)>
+<!ELEMENT any ANY>
+<!ELEMENT vacío EMPTY>
+]>
+<elementos>
+	<any/>
+	<vacio/>
+</elementos>
+
+<!-- 3 Ejercicios de tipos de atributo atributos (corregir XML) -->
+
+<!-- Ejercicio 16 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE formas [
+<!ELEMENT formas (cuadrado, triangulo, circulo, otra)>
+<!ELEMENT cuadrado (#PCDATA)>
+<!ATTLIST cuadrado lados CDATA #REQUIRED>
+<!ELEMENT triangulo (#PCDATA)>
+<!ATTLIST triangulo lados CDATA #REQUIRED>
+<!ELEMENT circulo (#PCDATA)>
+<!ELEMENT otra EMPTY>
+<!ATTLIST otra lados CDATA #REQUIRED>
+]>
+<formas>
+	<cuadrado lados="4">tablero</cuadrado>
+	<triangulo lados="3">señal</triangulo>
+	<circulo>anilla</circulo>
+	<otra lados="7"/>
+</formas>
+
+<!-- Ejercicio 17 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE empresas [
+<!ELEMENT empresas (empresa)*>
+<!ELEMENT empresa EMPTY>
+<!ATTLIST empresa nombre CDATA #REQUIRED>
+<!ATTLIST empresa fecha_de_fundacion CDATA #IMPLIED>
+]>
+<empresas>
+	<empresa nombre="Apple" fecha_de_fundacion="1976"/>
+	<empresa nombre="Google"/>
+	<empresa nombre="Microsoft" fecha_de_fundacion="1975"/>
+</empresas>
+
+<!-- Ejercicio 18 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE articulos [
+<!ELEMENT articulos (articulo)+>
+<!ELEMENT articulo (#PCDATA)>
+<!ATTLIST articulo color CDATA #FIXED "rojo"> ]>
+<articulos>
+	<articulo color="rojo">bolígrafo</articulo>
+	<articulo>cuaderno</articulo>
+	<articulo color="rojo">rotulador</articulo>
+</articulos>
+
+<!-- Ejercicio 19 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE geografia [
+<!ELEMENT geografia (paises, ciudades)>
+<!ELEMENT paises (pais)*>
+<!ELEMENT pais (#PCDATA)>
+<!ATTLIST pais codpais ID #REQUIRED>
+<!ELEMENT ciudades (ciudad)*>
+<!ELEMENT ciudad (#PCDATA)>
+<!ATTLIST ciudad pais IDREF #IMPLIED>
+
+]>
+<geografia>
+<paises>
+	<pais codpais="ARG">Argentina</pais>
+	<pais codpais="AUS">Austria</pais> <pais codpais="3">Japón</pais>
+	<pais codpais="NOR">Noruega</pais>
+</paises>
+<ciudades>
+	<ciudad pais="JAP">Osaka</ciudad>
+	<ciudad>Oslo</ciudad>
+	<ciudad>Sevilla</ciudad>
+	<ciudad pais="JAP">Tokio</ciudad>
+	<ciudad pais="AUS">Viena</ciudad>
+</ciudades>
+</geografia>
+
+<!-- Ejercicio 20 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pizzas [
+<!ELEMENT pizzas (ingredientes, tipos)>
+<!ELEMENT ingredientes (ingrediente)*>
+<!ELEMENT ingrediente (#PCDATA)>
+<!ATTLIST ingrediente coding ID #REQUIRED>
+<!ELEMENT tipos (tipo)*>
+<!ELEMENT tipo EMPTY>
+<!ATTLIST tipo nombre CDATA #REQUIRED>
+<!ATTLIST tipo ingredientes IDREFS #REQUIRED>
+
+]>
+<pizzas>
+<ingredientes>
+	<ingrediente coding="HUE">Huevo</ingrediente>
+	<ingrediente coding="CHA">Champiñón</ingrediente>
+	<ingrediente coding="CHO">Chorizo</ingrediente>
+	<ingrediente coding="CAL">Calabacín</ingrediente>
+	<ingrediente coding="JAM">Jamón de York</ingrediente>
+	<ingrediente coding="ZAN">Zanahoria</ingrediente>
+</ingredientes>
+<tipos>
+	<tipo nombre="Fantástica" ingredientes="CAL, CHA, ZAN"/>
+	<tipo nombre="Sabrosa" ingredientes="CHA, CHO, JAM, HUE"/>
+</tipos>
+</pizzas>
+
+<!-- 4 Ejercicios de tipos de atributo atributos (corregir DTD) -->
+
+<!-- Ejercicio 21 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE declaraciones [
+<!ELEMENT declaraciones (consonante | tipo_de_dato | variable)*>
+<!ELEMENT consonante (#PCDATA)>
+<!ATTLIST consonante valor CDATA #REQUIRED>
+<!ELEMENT tipo_de_dato (#PCDATA)>
+<!ELEMENT variable (#PCDATA)>
+<!ATTLIST variable tipo CDATA #IMPLIED>
+]>
+<declaraciones>
+	<consonante valor="3.141592">PI</consonante>
+	<variable tipo="real">radio</variable>
+	<variable>area</variable>
+	<variable>longitud</variable>
+</declaraciones>
+
+<!-- Ejercicio 22 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE saludos [
+<!ELEMENT saludos (saludo*)>
+<!ELEMENT saludo (#PCDATA)>
+<!ATTLIST saludo idioma (ALE | ESP | FRA | ITA | POR) "ESP">
+]>
+<saludos>
+<saludo idioma="ALE">Hallo</saludo>
+<saludo>Hola</saludo> 
+<saludo idioma="ITA">Ciao</saludo>
+<saludo idioma="FRA">Salut</saludo>
+<saludo idioma="POR">Olá</saludo>
+</saludos>
+
+<!-- Ejercicio 23 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE cine [
+<!ELEMENT peliculas (pelicula, actores)*>
+<!ELEMENT pelicula (#PCDATA)>
+<!ATTLIST pelicula codpel ID #IMPLIED>
+<!ELEMENT actores (actor)*>
+<!ELEMENT actor (#PCDATA)>
+<!ATTLIST actor filmografia IDREFS #REQUIRED>
+
+]>
+<cine>
+<peliculas> 
+	<pelicula>Avatar</pelicula>
+	<pelicula codpel="P1">Gran Torino</pelicula>
+	<pelicula codpel="P2">Invictus</pelicula>
+	<pelicula codpel="P3">Million dollar baby</pelicula>
+	<pelicula codpel="P4">Oblivion</pelicula>
+	<pelicula codpel="P5">Unforgiven</pelicula>
+</peliculas>
+<actores>
+	<actor filmografia="P1 P3 P5">Clint Eastwood</actor>
+	<actor filmografia="P2 P3 P4 P5">Morgan Freeman</actor>
+	<actor filmografia="P4">Tom Cruise</actor>
+</actores>
+</cine>
+
+<!-- Ejercicio 24 -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE lunas [
+<!ELEMENT lunas (luna)*>
+<!ELEMENT luna EMPTY>
+<!ATTLIST luna numero ID #REQUIRED>
+<!ATTLIST luna nombre CDATA #REQUIRED>
+<!ATTLIST luna planeta CDATA #IMPLIED>
+]>
+
+<lunas>
+	<luna numero="N234" nombre="Galatea"/>
+	<luna numero="N479" nombre="Mimas" planeta="Saturno"/>
+	<luna numero="N566" nombre="Diode" planeta="Saturno"/>
+	<luna numero="N607" nombre="Miranda" planeta="Urano"/>
+</lunas>
+
+<!--5 Ejercicio Ejercicio adicional adicional
+Ejercicio 23
+Escribir un documento XML con una DTD interna que represente la siguiente información
+ficticia:
+PANEL DE VUELOS DE SALIDA DEL AEROPUERTO JFK – 20/12/2013
+Código Diario Origen Destino Hora salida Hora llegada Estado
+V22 SI New York Chicago 9:30 11:30 R
+V23 NO New York Miami 10:15 11:15 C
+
+Consideraciones respecto a la DTD:
+• Hay que guardar el nombre del aeropuerto, los datos de cada vuelo agrupados y la
+fecha del panel, en ese fecha del panel, en ese orden.
+• En la DTD, sólo el código de un vuelo y su estado deben representarse mediante
+atributos.
+• Se tiene que indicar que el código ha de ser único y obligatorio para cada vuelo.
+• Los posibles estados de un vuelo son C (Cancelado), E (En hora), R (Retrasado).
+El valor por defecto debe ser E.
+• En la DTD debe indicarse que al menos tiene que aparecer un vuelo y, para cada
+uno de ellos, se tiene que guardar la información en el mismo orden en el que
+aparece en el panel.
+• Para indicar si un vuelo es diario, se debe utilizar un elemento vacío que, respecto
+a cada vuelo, podrá aparecer (en el a cada vuelo, podrá aparecer (en el caso de sí ser caso de sí ser diario)
+o no aparecer (en el caso diario) o no aparecer (en el caso
+contrario). -->
+
+<?xml version="1.0" enconding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE aeropuerto [
+<!ELEMENT aeropuerto (nombre, vuelos, fecha)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT vuelos (vuelo+)>
+<!ELEMENT vuelo (diario?, origen, destino, hora-salida, hora-llegada)>
+	<!ATTLIST vuelo código ID #REQUIRED>
+	<!ATTLIST vuelo estado (C|E|R) "E">
+<!ELEMENT diario EMPTY>
+<!ELEMENT origen (#PCDATA)>
+<!ELEMENT destino (#PCDATA)>
+<!ELEMENT hora-salida (#PCDATA)>
+<!ELEMENT hora-llegada (#PCDATA)>
+<!ELEMENT fecha (#PCDATA)>
+]>
+<aeropuerto>
+	<nombre>JFK</nombre>
+	<vuelos>
+		<vuelo código="V22" estado="R">
+			<diario />
+			<origen>New York</origen>
+			<destino>Chicago</destino>
+			<hora-salida>9:30</hora-salida>
+			<hora-llegada>11:30</hora-llegada>
+		</vuelo>
+		<vuelo código="V23" estado="C">
+			<origen>New York</origen>
+			<destino>Miami</destino>
+			<hora-salida>10:15</hora-salida>
+			<hora-llegada>11:15</hora-llegada>
+		</vuelo>
+	</vuelos>
+	<fecha>20/12/2013</fecha>
+</aeropuerto>
+

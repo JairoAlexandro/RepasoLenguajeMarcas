@@ -1,0 +1,63 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<paneles>
+  <evento tipo="Accidente" fecha="Mon, 31 Jan 2011 23:00:00 GMT">    
+    <via>
+      <nombre>Autopista del V Centenario</nombre>
+      <ref>A-49</ref>
+      <origen>Sevilla</origen>
+      <destino>Huelva</destino>
+      <doble/>
+      <carriles>4</carriles>
+    </via>
+    <pk>42.200</pk>
+    <retencion long="8.000"/>
+    <sentido>1</sentido>	  
+    <carrilescortados valor="1"/>
+  </evento>
+  <evento tipo="Retención" fecha="Tue, 1 Feb 2011 13:43:01 GMT">
+    <via>
+      <nombre>Autovía de Andalucía</nombre>
+      <ref>A-4</ref>
+      <origen>Madrid</origen>
+      <destino>Cádiz</destino>
+      <doble/>
+      <carriles>4</carriles>
+    </via>
+    <pk>550.000</pk>
+    <retencion long="3.000"/>
+    <sentido>-1</sentido>
+  </evento>
+</paneles>-->
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="www.w3.org/2001/XMLSchema">
+<xs:element name="paneles">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="evento" minOccurs="1" maxOccurs="unbounded">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="via" minOccurs="1" maxOccurs="unbounded">
+						
+						</xs:element>
+						<xs:element name="pf" type="xs:decimal"/>
+						<xs:element name="retencion">
+							<xs:complexType>
+								<xs:attribute name="long" type="xs:decimal"/>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="carrilescortados" minOccurs="0" maxOccurs="unbounded">
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="tipo">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="Accidente"/>
+					<xs:enumeration value="Retención"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="fecha" type="xs:dateTime"/>
+	</xs:complexType>
+</xs:elememt>

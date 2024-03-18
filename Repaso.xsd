@@ -1,0 +1,94 @@
+<!--<?xml version="1.0" encoding="UTF-8"?>
+<biblioteca>
+  <libro id="LIB001">
+    <titulo>El ingenioso hidalgo Don Quijote de la Mancha</titulo>
+    <autor>
+      <nombre>Miguel de Cervantes Saavedra</nombre>
+    </autor>
+    <fecha_publicacion>1605</fecha_publicacion>
+    <idioma>Español</idioma>
+    <genero>Novela picaresca</genero>
+    <resumen>Las aventuras de un hidalgo manchego que confunde la realidad con la ficción de los libros de caballería.</resumen>
+    <disponibilidad>En préstamo</disponibilidad>
+    <ejemplares>
+      <ejemplar id="EJ-LIB001-1">
+        <estado>Bueno</estado>
+        <ubicacion>Estante 3, Pasillo B</ubicacion>
+      </ejemplar>
+      <ejemplar id="EJ-LIB001-2">
+        <estado>Regular (falta portada)</estado>
+        <ubicacion>Depósito</ubicacion>
+      </ejemplar>
+    </ejemplares>
+  </libro>
+  <libro id="LIB002">
+    <titulo>Cien años de soledad</titulo>
+    <autor>
+      <nombre>Gabriel García Márquez</nombre>
+      <nacionalidad>Colombia</nacionalidad>
+    </autor>
+    <fecha_publicacion>1967</fecha_publicacion>
+    <idioma>Español</idioma>
+    <genero>Realismo mágico</genero>
+    <resumen>La historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo.</resumen>
+    <disponibilidad>Disponible</disponibilidad>
+  </libro>
+  </biblioteca> -->
+  
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="biblioteca">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="libro" minOccurs="1" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="titulo" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="autor" minOccurs="1" maxOccurs="1">
+								<xs:simpleType>
+									<xs:sequence>
+										<xs:element name="nombre" type="xs:string" minOccurs="1" maxOccurs="1"/>
+									</xs:sequence>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="fecha_publicacion" type="xs:dateTime" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="idioma" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="genero" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="resumen" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="disponibilidad" type="xs:string" minOccurs="1" maxOccurs="1"/>
+							<xs:element name="ejemplares" minOccurs="0" maxOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="ejemplar" minOccurs="1" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="estado" minOccurs="1" maxOccurs="1"/>
+													<xs:element name="ubicacion" minOccurs="1" maxOccurs="1"/>
+												</xs:sequence>
+												<xs:attribute name="id">
+													<xs:simpleType>
+														<xs:restriction base="xs:string">
+															<xs:enumeration value="EJ-LIB001-1"/>
+															<xs:enumeration value="EJ-LIB001-2"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:attribute>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="id">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="LIB001"/>
+									<xs:enumeration value="LIB002"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>

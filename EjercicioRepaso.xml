@@ -1,0 +1,293 @@
+<!-- Ejercicio 1 -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE catalogo [
+<!ELEMENT catalogo (producto)+>
+<!ELEMENT producto (nombre, descripcion?)>
+<!ATTLIST producto codigo CDATA #IMPLIED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+]>
+
+<catalogo>
+<!--El catalogo lleva uno o más elementos producto-->
+	<producto> <!--Producto puede tener un atributo codigo-->
+		<nombre>Caja con autocierre</nombre>
+<!--La descripción es optativa-->
+		<descripcion>Caja de seguridad...</descripcion>
+	</producto>
+	<producto codigo="jjjjj">
+		<nombre>Caja llaves</nombre>
+	</producto>
+</catalogo>
+
+<!-- Ejercicio 2 -->
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE catalogo [
+<!ELEMENT catalogo (producto)+>
+<!ELEMENT producto (nombre, descripcion?, (origen | pais))>
+<!ATTLIST producto codigo #IMPLIED>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT descripcion (#PCDATA)>
+<!ELEMENT origen (#PCDATA)>
+<!ELEMENT pais (#PCDATA)>
+]>
+
+<catalogo>
+<!--El catalogo lleva uno o más elementos producto-->
+<producto> <!--Producto puede tener un atributo codigo-->
+	<nombre>Caja con autocierre</nombre>
+	<!--La descripción es optativa-->
+	<descripcion>Caja de seguridad...</descripcion>
+	<origen>Alemania</origen>
+</producto>
+<producto aaabbbccc="jjjjj">
+	<nombre>Caja llaves</nombre>
+<!-- Despues de la descripcion debe haber
+uno de estos dos elementos :
+a) origen
+b) pais -->
+	<pais>Francia</pais>
+</producto>
+</catalogo>
+
+<!-- Ejercicio 3 -->
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE productos [
+<!ELEMENT productos (producto)+>
+<!ELEMENT producto (identificacion, nombre)>
+<!ELEMENT identificacion (#PCDATA | codigo | id )*>
+<!ELEMENT identificacion (#PCDATA)>
+<!ELEMENT codigo (#PCDATA)>
+<!ELEMENT id (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+]>
+
+<productos>
+	<producto>
+		<identificacion>
+			Quedan 14 unidades.
+			<codigo>MAR264</codigo>
+		</identificacion>
+		<nombre>martillo</nombre>
+	</producto>
+	<producto>
+		<identificacion>
+			<codigo>DES387</codigo>
+
+			<id>678984</id>
+			No hay stock.
+		</identificacion>
+		<nombre>destornillador</nombre>
+	</producto>
+</productos>
+
+<!-- Ejercicio 4 -->
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE Pedido [
+<!ELEMENT Pedido (Destino, Ordenante, Observaciones, Contenido)>
+<!ATTLIST Pedido 
+xmlns CDATA #REQUIRED
+fecha CDATA #REQUIRED
+>
+<!ELEMENT Destino (Nombre, Direccion, Ciudad, CodPostal)>
+<!ELEMENT Ordenante (Nombre, Direccion, Ciudad, CodPostal)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Direccion (#PCDATA)>
+<!ELEMENT Ciudad (#PCDATA)>
+<!ELEMENT CodPostal (#PCDATA)>
+<!ELEMENT Observaciones (#PCDATA)>
+<!ELEMENT Contenido (Producto)+>
+<!ATTLIST Contenido codigo CDATA #REQUIRED>
+<!ELEMENT Producto (Nombre, Cantidad, Precio, Observaciones?)>
+<!ELEMENT Cantidad (#PCDATA)>
+<!ELEMENT Precio (#PCDATA)>
+]>
+
+
+<Pedido xmlns="http://www.miempresa.org/pedidos" fecha="1999-10-20">
+	<Destino>
+		<Nombre>Alicia Abad</Nombre>
+		<Direccion>Plaza de la Duquesa 12</Direccion>
+		<Ciudad>Albacete</Ciudad>
+		<CodPostal>05020</CodPostal>
+	</Destino>
+	<Ordenante>
+		<Nombre>Roberto Movilla</Nombre>
+		<Direccion>General Ricardos 56</Direccion>
+		<Ciudad>Madrid</Ciudad>
+		<CodPostal>28055</CodPostal>
+	</Ordenante>
+	<Observaciones>Es urgente, el césped está muy alto</Observaciones>
+	<Contenido>
+		<Producto codigo="872-AA">
+			<Nombre>Cortadora de cesped</Nombre>
+			<Cantidad>1</Cantidad>
+			<Precio>148.95</Precio>
+			<Observaciones>Confirmar que es eléctrica</Observaciones>
+		</Producto>
+		<Producto codigo="926-FH">
+			<Nombre>Podadora</Nombre>
+			<Cantidad>3</Cantidad>
+			<Precio>7.98</Precio>
+		</Producto>
+	</Contenido>
+</Pedido>
+
+
+
+
+<!-- Ejercicio 5 -->
+
+
+
+
+
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE Pedido [
+<!ENTITY % C "(#PCDATA)">
+<!ELEMENT Pedido (Destino, Ordenante, Observaciones, Contenido)>
+<!ATTLIST Pedido
+	xmlns CDATA #REQUIRED
+	fecha CDATA #REQUIRED
+>
+<!ELEMENT Destino (Nombre, Direccion, Ciudad, CodPostal)>
+<!ELEMENT Destino (Nombre, Direccion, Ciudad, CodPostal)>
+<!ELEMENT Nombre %C;>
+<!ELEMENT Direccion %C;>
+<!ELEMENT Ciudad %C;>
+<!ELEMENT CodPostal %C;>
+<!ELEMENT Observaciones %C;>
+<!ELEMENT Contenido (Producto)+>
+<!ELEMENT Producto (Nombre, Cantidad, Precio, Observaciones?)>
+<!ATTLIST Producto codigo CDATA #REQUIRED>
+<!ELEMENT Cantidad %C;>
+<!ELEMENT Precio %C;>
+]>
+
+<Pedido xmlns="http://www.miempresa.org/pedidos" fecha="1999-10-20">
+	<Destino>
+		<Nombre>Alicia Abad</Nombre>
+		<Direccion>Plaza de la Duquesa 12</Direccion>
+		<Ciudad>Albacete</Ciudad>
+		<CodPostal>05020</CodPostal>
+	</Destino>
+	<Ordenante>
+		<Nombre>Roberto Movilla</Nombre>
+		<Direccion>General Ricardos 56</Direccion>
+		<Ciudad>Madrid</Ciudad>
+		<CodPostal>28055</CodPostal>
+	</Ordenante>
+	<Observaciones>Es urgente, el césped está muy alto</Observaciones>
+	<Contenido>
+		<Producto codigo="872-AA">
+			<Nombre>Cortadora de cesped</Nombre>
+			<Cantidad>1</Cantidad>
+			<Precio>148.95</Precio>
+			<Observaciones>Confirmar que es eléctrica</Observaciones>
+		</Producto>
+		<Producto codigo="926-FH">
+			<Nombre>Podadora</Nombre>
+			<Cantidad>3</Cantidad>
+			<Precio>7.98</Precio>
+		</Producto>
+	</Contenido>
+</Pedido>
+
+<!-- Ejercicio 6 -->
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE personas [
+<!ENTITY % CD "(#PCDATA)">
+<!ENTITY N "Nacho">
+<!ELEMENT personas (persona)+>
+<!ELEMENT persona (nombre, apellido, direccion*)>
+<!ATTLIST persona
+	id ID #REQUIRED
+	genero (masculino | femenino) #IMPLIED
+	edad CDATA #FIXED "30"
+	tiene_hijos (true | false) "true"
+>
+<!ELEMENT nombre %CD;>
+<!ELEMENT apellido %CD;>
+<!ELEMENT direccion (calle, numero, ciudad)>
+<!ELEMENT calle %CD;>
+<!ELEMENT numero %CD;>
+<!ELEMENT ciudad %CD;>
+]>
+
+
+<personas>
+    <persona id="1" genero="masculino" edad="30" tiene_hijos="true">
+        <nombre>&N;</nombre>
+        <apellido>García</apellido>
+    </persona>
+    <persona id="2" genero="femenino" edad="30" tiene_hijos="true">
+        <nombre>&N;</nombre>
+        <apellido>Gómez</apellido>
+        <direccion>
+            <calle>Calle Mayor</calle>
+            <numero>456</numero>
+            <ciudad>Madrid</ciudad>
+        </direccion>
+		<direccion>
+            <calle>Calle Mayor</calle>
+            <numero>456</numero>
+            <ciudad>Madrid</ciudad>
+        </direccion>
+    </persona>
+</personas>
+
+
+
+<!-- Ejercicio 7 -->
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE animales[
+<!ENTITY %CD "(#PCDATA)">
+<!ENTITY N "Nico">
+<!ELEMENT animales (animal+)>
+<!ELEMENT animal (nombre,raza?,especie?,habitat*)>
+	<!ATTLIST animal
+			tipo CDATA  #REQUIRED
+			especie CDATA #IMPLIED
+			edad CDATA #FIXED "5"
+			tiene_dueño (true | false) #IMPLIED
+	>
+	<!ELEMENT nombre %CD;>
+	<!ELEMENT raza %CD;>
+	<!ELEMENT especie %CD;>
+	<!ELEMENT habitat (tipo,ubicacion)>
+		<!ELEMENT tipo %CD;>
+		<!ELEMENT ubicacion %CD;>
+]>
+<animales>
+    <animal tipo="mamífero" especie="perro" edad="5" tiene_dueño="true">
+        <nombre>&N;</nombre>
+        <raza>Labrador Retriever</raza>
+    </animal>
+    <animal tipo="ave" edad="5" tiene_dueño="false">
+        <nombre>Paco</nombre>
+        <especie>Loro Gris Africano</especie>
+        <habitat>
+            <tipo>jaula</tipo>
+            <ubicacion>casa</ubicacion>
+        </habitat>
+        <habitat>
+            <tipo>jardín</tipo>
+            <ubicacion>casa</ubicacion>
+        </habitat>
+    </animal>
+</animales>
